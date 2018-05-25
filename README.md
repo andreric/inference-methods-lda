@@ -6,9 +6,9 @@ The purpose of this repository is to serve as a study material for those interes
 
 We will be implementing the following inference methods:
 
-1. MCMC
-2. Gibbs sampling
-3. Collapsed Gibbs sampling
-4. Variational Inference
+- [ ] MCMC
+- [ ] Gibbs sampling
+- [ ] Collapsed Gibbs sampling
+- [ ] Variational Inference
 
 
