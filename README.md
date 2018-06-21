@@ -8,7 +8,7 @@ We will be implementing the following inference methods:
 
 - [ ] MCMC
 - [ ] Gibbs sampling
-- [ ] Collapsed Gibbs sampling
+- [ ] Hamiltonian Monte Carlo
 - [ ] Variational Inference
 
 
