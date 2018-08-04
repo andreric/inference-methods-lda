@@ -2,16 +2,17 @@ import time
 import numpy as np
 from scipy.sparse import csr_matrix
 import xmltodict
-from os import listdir
+import pandas as pd
 import collections
 import pickle
 import nltk
 from nltk.tokenize import RegexpTokenizer
 
 def preprocess_irishtimes(data, max_vocab=None, years=None):
+    # https://www.kaggle.com/therohk/ireland-historical-news
     t0 = time.time()
     tokenizer = RegexpTokenizer(r'\w+')
-    data = data[data['headline_category'] == 'sport.soccer']
+    # data = data[data['headline_category'] == 'sport.soccer']
     # data = data[data['headline_category'] == 'business']
     not_relevant = ['at', 'as', 'an', 'of', 'from', 'to', 'on', 'in', 'with',
                     'for', 'by', 'about', 'into', 'the', 'and']
@@ -58,7 +59,7 @@ def preprocess_irishtimes(data, max_vocab=None, years=None):
 
 
 def preprocess_blogs(posts_path, max_vocab=None):
-
+    # http://u.cs.biu.ac.il/~koppel/BlogCorpus.htm
     import glob
     import xml.etree.ElementTree as ET
 
@@ -79,8 +80,8 @@ def preprocess_blogs(posts_path, max_vocab=None):
 
 
 if __name__ == '__main__':
-    # data = pd.read_csv('../data/irishtimes-date-text.csv')
-    #preprocess_irishtimes(data, max_vocab=1000)
+    data = pd.read_csv('../data/irishtimes-date-text.csv')
+    preprocess_irishtimes(data, max_vocab=1000)
 
-    posts_path = '../data/blogs/'
-    preprocess_blogs(posts_path, max_vocab=1000)
+    # posts_path = '../data/blogs/'
+    # preprocess_blogs(posts_path, max_vocab=1000)
