@@ -117,8 +117,8 @@ def preprocess_blogs(posts_path, max_vocab=None):
 
 
 if __name__ == '__main__':
-    # data = pd.read_csv('../data/irishtimes-date-text.csv')
-    # preprocess_irishtimes(data, max_vocab=1000)
+    data = pd.read_csv('../data/irishtimes-date-text.csv')
+    preprocess_irishtimes(data, max_vocab=1000)
 
-    posts_path = '../data/short_blogs/'
-    preprocess_blogs(posts_path, max_vocab=1000)
+    # posts_path = '../data/short_blogs/'
+    # preprocess_blogs(posts_path, max_vocab=1000)
