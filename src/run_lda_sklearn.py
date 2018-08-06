@@ -14,9 +14,12 @@ def print_top_words(model, feature_names, n_top_words):
 
 if __name__ == '__main__':
 
-    with open('../data/blogs_processed.pkl', 'rb') as fh:
+    with open('../data/irishtimes_processed.pkl', 'rb') as fh:
         dtm, vocab = pickle.load(fh)
+    print('Loaded file.')
+
     dtm_dense = dtm.todense()
+    print('DTM matrix converted to dense.')
     tf_feature_names = list(vocab.keys())
 
     n_samples = 2000
@@ -27,8 +30,9 @@ if __name__ == '__main__':
     lda = LatentDirichletAllocation(n_components=n_components, max_iter=10,
                                 learning_method='online',
                                 learning_offset=50.,
-                                random_state=0)
+                                random_state=0, verbose=1)
     t0 = time.time()
+    print('Starting training process.')
     lda.fit(dtm_dense)
     print("done in %0.3fs." % (time.time() - t0))
 
